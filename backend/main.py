@@ -4,8 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 import os
 import base64
-from ai_integrations import get_ai_response
-from audio_utils import text_to_speech, speech_to_text
+from backend.ai_integrations import get_ai_response
+from backend.audio_utils import text_to_speech, speech_to_text
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "frontend/build/static"), name="static")
