@@ -6,8 +6,15 @@ import os
 import base64
 from backend.ai_integrations import get_ai_response
 from backend.audio_utils import text_to_speech, speech_to_text
+from fastapi.responses import FileResponse
+from dotenv import load_dotenv
+
+# Ladda miljövariabler
+load_dotenv()
 
 app = FastAPI()
+
+# Montera statiska filer
 app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "frontend/build/static"), name="static")
 
 security = HTTPBasic()
